@@ -6,9 +6,9 @@
         <div class="col-4">
             <form method="POST">
                 {% csrf_token %}
-
-                <input type="text" name="username" required="" id="id_username" maxlength="150" class="form-control"
-                    placeholder="Username" aria-label="default input example">
+                {{ form.errors }}
+                <input type="text" name="username" required="" id="id_email" maxlength="150" class="form-control"
+                    placeholder="Email" aria-label="default input example">
                 <br>
                 <input type="password" name="password" required="" class="form-control" id="id_password"
                     placeholder="Password">
