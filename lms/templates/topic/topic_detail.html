@@ -1,0 +1,62 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+
+
+<!-- <div class="row">
+    <div class="col-3">
+        <a href="/blog/author/{{ topic.author.id }}" class="btn btn-primary">{{ topic.author }}</a>
+        <br>
+        <p></p>
+        <a href="/blog/topics_by_category/{{ topic.category }}" class="btn btn-primary">{{ topic.category }}</a>
+    </div>
+    <div class="col-6"><h1>{{ topic.title }}</h1></div>
+    <div class="col-3"></div>
+</div>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10"><p class="card-text">{{ topic.content }}</p></div>
+    <div class="col"></div>
+</div>
+<div class="row">
+    {% if topic.photo %}
+    <img src="{{ topic.photo.url }}" class="img-thumbnail" alt="...">
+    {% endif %}
+</div>
+<div>
+    <a href="/blog/topic_update/{{topic.id}}" type="button" class="btn btn-info">Обновить</a>
+    <a href="/blog/topic_delete/{{topic.id}}" type="button" class="btn btn-danger">Удалить</a>
+</div> -->
+
+
+
+<div class="card" style="width: 52rem;">
+    <p><a href="{{ topic.author.get_absolute_url }}" class="btn btn-primary">{{ topic.author.username }}</a>
+    <a href="{% url 'topics_by_category' topic.category.title %}" class="btn btn-primary">{{ topic.category }}</a></p>
+    {% if topic.photo %}
+    <img src="{{ topic.photo.url }}" class="card-img-top" alt="...">
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ topic.title }}</h5>
+      <p class="card-text">{{ topic.content }}</p>
+    </div>
+    <div>
+        <a href="/blog/topic_update/{{topic.id}}" type="button" class="btn btn-info">Обновить</a>
+        <a href="/blog/topic_delete/{{topic.id}}" type="button" class="btn btn-danger">Удалить</a>
+    </div>
+
+  </div>  
+            
+
+            
+ 
+
+
+
+
+
+
+
+
+{% endblock %}

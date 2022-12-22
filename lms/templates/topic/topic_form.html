@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <select hidden name="author" required id="author">
+        <option value="{{ user.id }}">{{ user.email }}</option>
+    </select>
+    {{ form.title }}
+    {{ form.text }}
+    {{ form.category }}
+    {{ form.is_published }}
+    <input type="submit" value="Save" class="btn btn-primary">
+</form>
+
+{% endblock %}

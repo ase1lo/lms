@@ -1,0 +1,26 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+{{ error }}
+{% for topic in topics_by_category %}
+
+{% if topic.is_published %}
+<div class="container-md">
+    <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+            <a href="/blog/author/{{ topic.author.id }}" class="btn btn-primary">{{ topic.author }}</a>
+            <h5 class="card-title">{{ topic.title }}</h5>
+            <p class="card-text">{{ topic.category }}</p>
+            <p class="card-text">{{ topic.content|truncatewords:30 }}</p>
+            <a href="/blog/topics_by_category/{{ topic.category }}" class="btn btn-primary">{{ topic.category }}</a>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endfor %}
+
+
+{% endblock %}
+

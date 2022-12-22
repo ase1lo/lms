@@ -7,7 +7,7 @@ from .managers import CustomUserManager
 
 class CustomUser(AbstractUser):
     # 'third_name', 'first_name', 'second_name', 'status'
-    username = None
+    username = models.CharField(_('Ник'), max_length=30, null=True)
     first_name = models.CharField(_('Имя'), max_length=30, null=True,)
     second_name = models.CharField(_('Фамилия'), max_length=30, null=True,)
     third_name = models.CharField(_('Отчество'), max_length=30, null=True,)
