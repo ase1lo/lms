@@ -28,6 +28,8 @@ class CustomUser(AbstractUser):
         null=True,
     )
 
+
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     
@@ -35,3 +37,9 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.email
+
+
+class Follower(models.Model):
+    follower = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=True, related_name='Подписчик')
+    author = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=True, related_name='Автор')
+    #можно подписаться несколько раз
