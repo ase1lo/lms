@@ -47,6 +47,7 @@ class UserProfile(DetailView):
         data['num_of_followers'] = followers.count()
         # data['num_of_following'] = following.count() <- выпод подписок 
         data['is_follow'] = self.check_follow(self.request.user, user)
+        print(topics)
 
         return data
 

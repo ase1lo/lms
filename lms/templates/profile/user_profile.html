@@ -57,5 +57,22 @@
     </div>
   </section>
 
+  {% for topic in topics %}
+
+  <div class="card">
+      <div class="card-header">
+          <a href="{{ topic.author.get_absolute_url }}" class="btn btn-primary">{{ topic.author.username }}</a>
+      </div>
+      <div class="card-body">
+          <h5 class="card-title">{{ topic.title }}</h5>
+          <p class="card-text">{{ topic.text|truncatechars:160 }}</p>
+          <a href="/blog/topic_detail/{{ topic.id }}" class="btn btn-primary">Read topic</a>
+          <a href="#" class="btn btn-primary">{{ topic.category }}</a>
+      </div>
+  </div>
+  </br>
+
+  {% endfor %}
+</div>
 
 {% endblock %}
