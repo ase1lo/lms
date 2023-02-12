@@ -34,15 +34,13 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{% url 'topic_create' %}">Topic Create</a></li>
-                  <li><a class="dropdown-item" href="#">Author Create</a></li>
-                  <li><a class="dropdown-item" href="#">Category Create</a></li>
       
                   
                 </ul>
               </li>
               {% endif %}
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">{{ user.username }}</a>
+                <a class="nav-link active" aria-current="page" href="{{ user.get_absolute_url }}">{{ user.username }}</a>
               </li>
             </ul>
           </div>

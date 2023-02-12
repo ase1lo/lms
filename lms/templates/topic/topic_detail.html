@@ -39,11 +39,13 @@
     {% endif %}
     <div class="card-body">
       <h5 class="card-title">{{ topic.title }}</h5>
-      <p class="card-text">{{ topic.content }}</p>
+      <p class="card-text">{{ topic.text }}</p>
     </div>
     <div>
+        {% if topic.author == user %}
         <a href="/blog/topic_update/{{topic.id}}" type="button" class="btn btn-info">Обновить</a>
         <a href="/blog/topic_delete/{{topic.id}}" type="button" class="btn btn-danger">Удалить</a>
+        {% endif %}
     </div>
 
   </div>  

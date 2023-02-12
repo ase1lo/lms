@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from lms_main.views import clear_url
 
 urlpatterns = [
+    path('', clear_url),
     path('admin/', admin.site.urls),
     path('blog/', include('lms_main.urls')),
     path('users/', include('users.urls')),

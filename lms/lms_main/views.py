@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import *
 from .forms import TopicForm
 from django.http import Http404
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -27,6 +28,17 @@ class TopicDetailView(DetailView):
     template_name = 'topic/topic_detail.html'
     context_object_name = 'topic'
 
+class TopicUpdateView(UpdateView):
+    model = Topic
+    form_class = TopicForm
+    template_name = 'topic/topic_form.html'
+
+class TopicDeleteView(DeleteView):
+    model = Topic
+    template_name = 'topic/topic_confirm_delete.html'
+    success_url = reverse_lazy('blog_home')
+    
+
 
 class TopicByCategory(ListView):
     model = Topic
@@ -49,3 +61,7 @@ class TopicByCategory(ListView):
 
 def blog_home(request):
     return render(request, 'blog/blog_home.html') 
+
+
+def clear_url(request):
+    return render(request, 'home.html')
